@@ -5,8 +5,8 @@ const searchItems = ['Informasi Rekening','Informasi Saldo','Mutasi Rekening'];
 const searchItems3 = ['Informasi Rekening','Mutasi Rekening'];
 const returning = 'Kembali\nke Menu Utama' ;
 const logout = '[ LOGOUT]';
-const Username = '' // masukin id klikbca
-const password = '' //masukin password klikbca
+const Username = 'ignatius7949' // masukin id klikbca
+const password = '080545' //masukin password klikbca
 const fullcheck = ['cek_saldo', 'cek_mutasi', 'cek_transfer', 'response','return_error']
 // Add stealth plugin and use defaults (all tricks to hide puppeteer usage)
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
@@ -92,9 +92,9 @@ async function testm(test_case) {
 			sessionStorage.clear();
 		  });
 		const id = await page.$('#txt_user_id');
-		await id.type(Username,{delay: 1000})
+		await id.type(Username,{delay: 200})
 		const pw = await page.$('#txt_pswd',);
-		await pw.type(password,{delay: 1000});
+		await pw.type(password,{delay: 200});
 		await page.keyboard.press('Enter');
 		// relogin and form validation error logging 
 		page.on('dialog', async dialog => {
