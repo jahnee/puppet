@@ -51,8 +51,8 @@ function getSum(total, num) {
   }
 async function test(test_case,run) {
 	let result = {};
-	const accounts = ["","rezahadi0620"] // ganti pake user klikbca anda
-	const passwords = ["","123456"] // ganti pake pass anda 
+	const accounts = [,"rezahadi0620"] // ganti pake user klikbca anda
+	const passwords = [,"123456"] // ganti pake pass anda 
 	let array_of_functions = [
         cek_saldo,
         cek_mutasi,
@@ -63,7 +63,7 @@ async function test(test_case,run) {
 		return result;
 	//	throw new Error('Test_case Invalid')
 	}
-	exec(`chrome --profile-directory="Default"  --remote-debugging-port=9222`, (error, stdout, stderr) => {
+	/*exec(`chrome --profile-directory="Default"  --remote-debugging-port=9222`, (error, stdout, stderr) => {
 		if (error) {
 		  console.error(`Error executing the command: ${error}`);
 		  return;
@@ -71,7 +71,7 @@ async function test(test_case,run) {
 		// Log the output of the command
 		console.log(`stdout: ${stdout}`);
 		console.error(`stderr: ${stderr}`);
-	  });
+	  });*/
 
 	let sock = await getWebSocket();
     sock = JSON.parse(sock)
@@ -197,7 +197,7 @@ async function cek_saldo(page,result){
 		});
 		let table_position = innerTextArray.indexOf(searchItems[0]);;
 		await getTextInIframe(table_position, iframe, 'tr td a font b');
-		sleep(2000);
+		await sleep(2000);
 		await iframe.waitForSelector("tr td font a");
 		let innerTextArray2 = await iframe.$$eval("tr td font a", elements => elements.map(element => element.innerText));
 		table_position = innerTextArray2.indexOf(searchItems[1]);
@@ -221,7 +221,7 @@ async function cek_saldo(page,result){
 	};
 	console.log("try returning to main function");
 		//returning to home
-	sleep(2000);
+	await sleep(2000);
 	try{
 		let frames = await page.frames();
 		let iframe = frames.find(f => f.name() === 'menu'); // name or id for the frame
@@ -230,7 +230,7 @@ async function cek_saldo(page,result){
 		let table_position = innerTextArray.indexOf(returning);
 		await getTextInIframe(table_position, iframe, 'tr td a font b');
 		await iframe.waitForNavigation({ waitUntil: ['load'] });
-		sleep(2000);
+		await sleep(2000);
 	}
 	catch(error){
 		console.log("Returning to Home failed");
@@ -259,7 +259,7 @@ console.log("try Checking mutasi");
 		});
 		let table_position = innerTextArray.indexOf(searchItems[0]);;
 		await getTextInIframe(table_position, iframe, 'tr td a font b');
-		sleep(2000);
+		await sleep(2000);
 		await iframe.waitForSelector("tr td font a");
 		frames = await page.frames();
 		iframe = frames.find(f => f.name() === 'menu'); // name or id for the frame
@@ -292,7 +292,7 @@ console.log("try Checking mutasi");
 	
 	console.log("try returning to main function");
 		//returning to home
-	sleep(2000);
+	await sleep(2000);
 	try{
 		let frames = await page.frames();
 		let iframe = frames.find(f => f.name() === 'menu'); // name or id for the frame
@@ -301,7 +301,7 @@ console.log("try Checking mutasi");
 		let table_position = innerTextArray.indexOf(returning);
 		await getTextInIframe(table_position, iframe, 'tr td a font b');
 		await iframe.waitForNavigation({ waitUntil: ['load'] });
-		sleep(2000);
+		await sleep(2000);
 	}
 	catch(error){
 		console.log("Returning to Home failed");
@@ -323,7 +323,7 @@ async function cek_transfer(page,result){
 	console.log("checking transfer dana");
 	try{
 		let iframe2cntn;
-		sleep(2000);
+		await sleep(2000);
 		let frames = await page.frames();
 		let iframe = frames.find(f => f.name() === 'menu'); // name or id for the frame
 		let iframe2 = frames.find(f => f.name() === 'atm');
@@ -336,7 +336,7 @@ async function cek_transfer(page,result){
 	  	let innerTextArray2 = await iframe.$$eval("tr td font a", elements => elements.map(element => element.innerText));
 	  	table_position = innerTextArray2.indexOf(searchItems2[1]);
 	  	await getTextInIframe(table_position, iframe, 'tr td font a');
-	  	sleep(2000);
+	  	await sleep(2000);
 	  	await iframe2.waitForSelector('tr:nth-child(0n+1) td div font input');
 	  	iframe2cntn = await iframe2.$$eval('tr:nth-child(8) td div font ',elements => elements.map(element => element.innerText));
 	 	 example(iframe2cntn[iframe2cntn.length -1]);
@@ -368,7 +368,7 @@ async function cek_transfer(page,result){
 	  table_position = innerTextArray.indexOf(returning);
 	  await getTextInIframe(table_position, iframe, 'tr td a font b'); 
       await iframe.waitForNavigation({ waitUntil: ['load'] });
-	  sleep(4000);}
+	  await sleep(4000);}
 	  catch(error){
 		console.log("Returning to Home failed");
 			try{
@@ -394,7 +394,7 @@ async function exit(browser,page,cookies){
 	  table_position = innerTextArray.indexOf(logout);
 	  await getTextInIframe(table_position, iframe, 'tr td a font b');
 	  await page.waitForNavigation({delay: 5000});
-	  sleep(10000);
+	  await sleep(10000);
 	  await page.evaluate(() => {
 		localStorage.clear();
 		sessionStorage.clear();
