@@ -1,9 +1,0 @@
-const { spawn } = require('child_process');
-
-const childProcess = spawn('appium', { detached: true, stdio: 'ignore' });
-
-// Detach the child process and allow the parent process to exit
-childProcess.unref();
-
-// Continue with other tasks
-console.log('Node.js script continues to run...');
