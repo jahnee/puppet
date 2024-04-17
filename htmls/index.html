@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control-panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="justify-items: center;">
+        <button class="navigateButton" style="align-self: flex-start;"> 
+        <a class="aNav" href="index.html">Go-To Control-Panel </a>
+        </button>
+        <button class="navigateButton"  style="align-self: flex-start;"> 
+        <a class="aNav" href="query.html">Go-To Prefabricated-Queries </a>
+        </button>
+        <button class="navigateButton" style="align-self: flex-start;">
+            <a href="manquery.html" class="aNav"> Go to manual Query</a>
+        </button>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <form class="form" id="klikbca">
+                <!-- Form 1 content goes here -->
+                    <label>
+                      <input type="checkbox" name="checkboxOption" value="Tes Cek Saldo"> Tes Cek Saldo
+                    </label>
+                    <br>
+                    <label>
+                      <input type="checkbox" name="checkboxOption" value="Tes Cek Mutasi"> Tes Cek Mutasi
+                    </label>
+                    <br>
+                    <label>
+                      <input type="checkbox" name="checkboxOption" value="Tes Menu Transfer"> Tes Menu Transfer
+                    </label>
+                    <br>
+                <button class="button" type="button" onclick="run()">test klikbca</button>
+            </form>
+
+            <form class="form" id="myBcaMobile">
+                <!-- Form 2 content goes here -->
+                <label>
+                    <input type="checkbox" name="checkboxOption" value="Tes_transfer"> Tes_transfer
+                </label>
+                  <br>
+                  <!--<label>
+                    <input type="checkbox" name="checkboxOption" value="Tes Cek Mutasi"> Tes Cek Mutasi
+                  </label>
+                  <br>-->
+                <button class="button" type="button" onclick="run2()">test mybca mobile</button>
+            </form>
+        </div>
+
+        <div class="belowDiv">
+            <h3>Results </h3>
+            <!-- Use a div instead of a paragraph for better structure -->
+            <div id="result" style="word-wrap: break-word;"></div>
+        </div>
+        <div class="belowDiv">
+            <h3>TEST CASES</h3>
+            <!-- Use a div instead of a paragraph for better structure -->
+            <div id="test_case" style="word-wrap: break-word; "></div>
+        </div>
+    </div>
+
+    <script>
+        const data = [
+  {
+    cek_saldo: 'success',
+    tes_transfer: 'success',
+    response: 'success'
+  },
+  {
+    cek_saldo: 'tested',
+    cek_mutasi: 'not_tested',
+    tes_transfer: 'tested',
+    response: 'not_tested'
+  }
+]
+        function detectSelectedOptions(id) {
+      let checkboxForm = document.getElementById(id);
+      let selectedOptions = [];
+      // Loop through checkboxes to find the selected ones
+      if(checkboxForm.checkboxOption.length > 1){
+      for (let i = 0; i < checkboxForm.checkboxOption.length; i++) {
+        if (checkboxForm.checkboxOption[i].checked) {
+          selectedOptions.push(1);
+        }
+        else{
+            selectedOptions.push(0); 
+        }
+      }}
+      else{
+      if(checkboxForm.checkboxOption.checked) {
+        selectedOptions.push(1);
+      }
+      else{
+        selectedOptions.push(0);
+      }
+      }
+      // Update the displayed selected options
+    console.log(selectedOptions)
+    return selectedOptions.toString();
+}
+    function run() {
+            let xhttp = new XMLHttpRequest();
+            let requestarray = detectSelectedOptions("klikbca");
+        
+            let query = "/klikbca?testcase=" + requestarray + "&id=0";
+            console.log(query);
+            xhttp.open("GET", query, true);
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let responseData = JSON.parse(this.response);
+                    console.log (JSON.stringify(this.response));
+                    let x = JSON.stringify(this.response);
+                    x = x.match(/consult console/);
+                    if (x == 'consult console'){
+                        console.log('matches');
+                        document.getElementById("result").innerHTML = "";
+                      document.getElementById("test_case").innerHTML = "";
+                        document.getElementById("result").innerHTML =  '<table id="tab" style="margin:auto;"><thead><tr><th>ERROR MESSAGE</th></thead><tbody><td>error while running test, please consult console</td></tr></tbody></table>';
+                        document.getElementById("test_case").innerHTML=  '<h1>NO TEST DONE</h1>';
+                    }
+                    else{  document.getElementById("result").innerHTML = "";
+                      document.getElementById("test_case").innerHTML = "";
+                    document.getElementById("result").innerHTML = generateTable(responseData[0]);
+                    document.getElementById("test_case").innerHTML = generateTable(responseData[1]);
+                  }
+                }
+            };
+
+            xhttp.send();
+        }
+
+        function generateTable(data) {
+            var table = document.createElement('table');
+            var tbody = document.createElement('tbody');
+            var thead = document.createElement('thead');
+            var tr = document.createElement('tr');
+
+            var headerRow = document.createElement('tr');
+            for (var key in data) {
+                var th = document.createElement('th');
+                th.textContent = key;
+                headerRow.appendChild(th);
+            }
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+            for (var key in data) {
+                var td = document.createElement('td');
+                td.textContent = data[key];
+                tr.appendChild(td);
+            }
+
+            tbody.appendChild(tr);
+            table.appendChild(tbody);
+            table.id = 'tab';
+            table.setAttribute('style', 'margin:auto;');
+            return table.outerHTML;
+        }
+        
+        function run2() {
+            let xhttp = new XMLHttpRequest();
+            let requestarray = detectSelectedOptions("myBcaMobile");
+        
+            let query = "/mybcamobile?testcase=" + requestarray;
+            console.log(query);
+            xhttp.open("GET", query, true);
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let responseData = JSON.parse(this.response);
+                    console.log (JSON.stringify(this.response));
+                    let x = JSON.stringify(this.response);
+                    x = x.match(/consult console/);
+                    if (x == 'consult console'){
+                        console.log('matches');
+                        document.getElementById("result").innerHTML = "";
+                      document.getElementById("test_case").innerHTML = "";
+                        document.getElementById("result").innerHTML =  '<table id="tab" style="margin:auto;"><thead><tr><th>ERROR MESSAGE</th></thead><tbody><td>error while running test, please consult console</td></tr></tbody></table>';
+                        document.getElementById("test_case").innerHTML=  '<h1>NO TEST DONE</h1>';
+                    }
+                    else{
+                      document.getElementById("result").innerHTML = "";
+                      document.getElementById("test_case").innerHTML = "";
+                    document.getElementById("result").innerHTML = generateTable(responseData[0]);
+                    document.getElementById("test_case").innerHTML = generateTable(responseData[1]);
+                  }
+                }
+            };
+
+            xhttp.send();
+        }
+</script>
+</html>

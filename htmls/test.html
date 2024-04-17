@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox Detection</title>
+</head>
+<body>
+
+  <h2>Select one or more checkboxes:</h2>
+
+  <form id="checkboxForm">
+    <label>
+      <input type="checkbox" name="checkboxOption" value="option1"> Option 1
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" name="checkboxOption" value="option2"> Option 2
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" name="checkboxOption" value="option3"> Option 3
+    </label>
+  </form>
+
+  <p id="selectedOptions">Selected Options: None</p>
+
+  <script>
+    // Function to detect the selected checkboxes
+    function detectSelectedOptions() {
+      var checkboxForm = document.getElementById('checkboxForm');
+      var selectedOptionsElement = document.getElementById('selectedOptions');
+      var selectedOptions = [];
+
+      // Loop through checkboxes to find the selected ones
+      for (var i = 0; i < checkboxForm.checkboxOption.length; i++) {
+        if (checkboxForm.checkboxOption[i].checked) {
+          selectedOptions.push(checkboxForm.checkboxOption[i].value);
+        }
+      }
+
+      // Update the displayed selected options
+      if (selectedOptions.length > 0) {
+        selectedOptionsElement.textContent = 'Selected Options: ' + selectedOptions.join(', ');
+      } else {
+        selectedOptionsElement.textContent = 'Selected Options: None';
+      }
+    }
+
+    // Attach the function to the change event of the checkboxes
+    document.getElementById('checkboxForm').addEventListener('change', detectSelectedOptions);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual-Queries</title>
+    <link rel="stylesheet" href="style.css">
+
+    </style>
+</head>
+    <body>
+        <div style="justify-items: center;">
+            <button class="navigateButton" style="align-self: flex-start;"> 
+            <a class="aNav" href="index.html">Go-To Control-Panel </a>
+            </button>
+            <button class="navigateButton"  style="align-self: flex-start;"> 
+            <a class="aNav" href="query.html">Go-To Prefabricated-Queries </a>
+            </button>
+            <button class="navigateButton" style="align-self: flex-start;">
+                <a href="manquery.html" class="aNav"> Go to manual Query</a>
+            </button>
+        </div>
+        <div class="container" >
+            <div style="margin: 50px;">
+            <label for="message" >manual sql</label>
+            <br>
+            </div>
+            <div>
+            <textarea id="message" name="message" rows="20" cols="100"></textarea>
+            <br>
+            <br>
+            <button id="Query" onclick="manualQuery()">start Query</button>
+        </div>
+            <div class="belowDiv">
+            <h3>Results of Query </h3>
+            <!-- Use a div instead of a paragraph for better structure -->
+            <div id="result" style="word-wrap: break-word;" name="ASU"></div>
+        </div>
+        </div>
+        </div>
+<script>
+    function manualQuery(){
+        document.getElementById(`result`).innerHTML= '';
+        let query = document.getElementById("message").value
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/manquery", true);
+        xhttp.onreadystatechange = function () {
+  if (xhttp.readyState == 4 && xhttp.status == 200) {
+    // Handle the response here
+    let x = JSON.parse(this.responseText)
+    console.log(x.length)
+    let table = '';
+    for (let i = 0 ; i < x.length; i++)
+    {
+    console.log(x[i])
+        if( i== 0){
+            let z = `result${i+1}`
+            let res = Object.values(x[i]);
+            table = generateTableHead(res,Object.keys(x[i]),i+1);
+          }
+          else{
+          let z = `result${i+1}`
+          let res = Object.values(x[i]);
+          generateTableBody(res,table,i+1);
+        }
+        document.getElementById(`result`).innerHTML= table.outerHTML
+      }
+    }
+}
+
+xhttp.setRequestHeader("Content-type", "text/plain");
+// Prepare the JSON data
+// Convert JSON data to a string and send the request
+xhttp.send(query);
+};
+
+    function generateTableHead(data,headers,i) {
+            var table = document.createElement('table');
+            var tbody = document.createElement('tbody');
+            var thead = document.createElement('thead');
+            var tr = document.createElement('tr');
+
+            var headerRow = document.createElement('tr');
+            for (var key in headers) {
+                var th = document.createElement('th');
+                th.textContent = headers[key];
+                headerRow.appendChild(th);
+            }
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+            for (var key in data) {
+                var td = document.createElement('td');
+                td.textContent = data[key];
+                tr.appendChild(td);
+            }
+
+            tbody.appendChild(tr);
+            table.appendChild(tbody);
+            table.setAttribute('style', 'margin:auto;');
+            return table;
+        }
+ 
+function generateTableBody(data,table,i) {
+            var tbody = document.createElement('tbody');
+            var tr = document.createElement('tr');
+            for (var key in data) {
+                var td = document.createElement('td');
+                td.textContent = data[key];
+                tr.appendChild(td);
+            }
+
+            tbody.appendChild(tr);
+            table.appendChild(tbody);
+            table.id = `tab${i}`;
+            table.setAttribute('style', 'margin:auto;');
+            return table;
+        }
+    
+</script>
+</body>
+</html>

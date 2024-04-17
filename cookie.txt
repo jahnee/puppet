@@ -1,0 +1,30 @@
+[
+  {
+    "name": "TSAUTHCOOKIE",
+    "value": "",
+    "domain": "teams.microsoft.com",
+    "path": "/",
+    "expires": 1711988981,
+    "size": 12,
+    "httpOnly": false,
+    "secure": true,
+    "session": false,
+    "sameParty": false,
+    "sourceScheme": "Secure",
+    "sourcePort": 443
+  },
+  {
+    "name": "MUIDB",
+    "value": "28C2262BA4BC6ED017D43264A5EE6F35",
+    "domain": "teams.microsoft.com",
+    "path": "/",
+    "expires": 1745227781.849331,
+    "size": 37,
+    "httpOnly": true,
+    "secure": true,
+    "session": false,
+    "sameParty": false,
+    "sourceScheme": "Secure",
+    "sourcePort": 443
+  }
+]

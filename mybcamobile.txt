@@ -1,0 +1,114 @@
+Transfer function failed at Tue Feb 20 2024 23:23:37 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Tue Feb 20 2024 23:27:17 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Tue Feb 20 2024 23:30:42 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Tue Feb 20 2024 23:37:25 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Tue Feb 20 2024 23:39:11 GMT+0700 (Western Indonesia Time)
+Transfer function successful 20/02/2024, 23:42:32
+Transfer function failed at Wed Feb 21 2024 15:57:28 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Feb 21 2024 15:59:15 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Feb 21 2024 16:03:09 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Feb 21 2024 16:08:01 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Feb 21 2024 16:19:03 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Feb 21 2024 16:21:52 GMT+0700 (Western Indonesia Time)
+Transfer function successful 21/02/2024, 16:33:32
+Transfer function successful 21/02/2024, 16:54:48
+Transfer function successful 22/02/2024, 15:33:27
+Transfer function successful 22/02/2024, 15:37:31
+Transfer function failed at Thu Feb 29 2024 10:14:49 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Thu Feb 29 2024 10:19:18 GMT+0700 (Western Indonesia Time)
+Transfer function successful 29/02/2024, 15:37:24
+Transfer function successful 04/03/2024, 10:18:47
+Transfer function successful 04/03/2024, 10:23:17
+Transfer function successful 04/03/2024, 10:27:35
+Transfer function successful 04/03/2024, 10:33:44
+Transfer function successful 04/03/2024, 10:37:40
+Transfer function successful 04/03/2024, 10:40:33
+Transfer function successful 04/03/2024, 10:45:30
+Transfer function failed at Mon Mar 04 2024 15:55:44 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Mon Mar 04 2024 15:56:26 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Mon Mar 04 2024 15:57:10 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Mon Mar 04 2024 15:58:30 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Mon Mar 04 2024 15:58:49 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Mon Mar 04 2024 15:59:44 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Mon Mar 04 2024 16:00:55 GMT+0700 (Western Indonesia Time)
+Transfer function successful 04/03/2024, 16:52:29
+Transfer function failed at Wed Mar 06 2024 13:37:19 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Mar 06 2024 13:38:14 GMT+0700 (Western Indonesia Time)
+Transfer function successful 06/03/2024, 13:43:13
+Transfer function successful 06/03/2024, 13:52:02
+Transfer function failed at Fri Mar 08 2024 16:36:19 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 16:38:15 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 16:41:20 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 16:48:44 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 16:53:17 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 16:55:49 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 17:06:46 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 22:37:04 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 22:39:44 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 22:42:26 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 22:44:58 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 22:51:23 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 23:09:32 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 23:11:01 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 23:12:13 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Mar 08 2024 23:13:38 GMT+0700 (Western Indonesia Time)
+Transfer function successful 08/03/2024, 23:29:41
+Transfer function successful 08/03/2024, 23:33:49
+Transfer function failed at Wed Apr 03 2024 10:25:36 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 10:48:08 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 10:48:35 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 11:05:05 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 11:09:55 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 11:17:08 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 11:19:14 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 11:38:07 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 11:38:39 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 11:39:08 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 13:18:36 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 13:19:26 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 15:47:56 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 15:54:27 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 15:58:47 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 16:08:44 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 16:16:21 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Wed Apr 03 2024 16:26:57 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Thu Apr 04 2024 18:08:24 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Thu Apr 04 2024 18:16:07 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Thu Apr 04 2024 18:24:23 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Thu Apr 04 2024 18:30:56 GMT+0700 (Western Indonesia Time)
+Transfer function successful 04/04/2024, 18:43:47
+Transfer function successful 04/04/2024, 18:50:12
+Transfer function successful 04/04/2024, 18:54:14
+Transfer function failed at Fri Apr 05 2024 09:58:22 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 10:11:08 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 10:31:11 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 10:33:24 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 10:38:06 GMT+0700 (Western Indonesia Time)
+Transfer function successful 05/04/2024, 10:51:56
+Transfer function failed at Fri Apr 05 2024 10:56:24 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 11:02:47 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 11:02:53 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 11:03:41 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 11:03:46 GMT+0700 (Western Indonesia Time)
+Transfer function successful 05/04/2024, 11:09:18
+Transfer function failed at Fri Apr 05 2024 11:25:16 GMT+0700 (Western Indonesia Time)
+Transfer function successful 05/04/2024, 11:27:19
+Transfer function successful 05/04/2024, 11:28:19
+Transfer function successful 05/04/2024, 11:32:51
+Transfer function successful 05/04/2024, 11:33:52
+Transfer function successful 05/04/2024, 11:36:43
+Transfer function successful 05/04/2024, 13:19:55
+Transfer function successful 05/04/2024, 13:40:46
+Transfer function failed at Fri Apr 05 2024 13:44:33 GMT+0700 (Western Indonesia Time)
+Transfer function successful 05/04/2024, 13:46:27
+Transfer function failed at Fri Apr 05 2024 13:47:00 GMT+0700 (Western Indonesia Time)
+Transfer function successful 05/04/2024, 13:48:35
+Transfer function failed at Fri Apr 05 2024 13:49:12 GMT+0700 (Western Indonesia Time)
+Transfer function failed at Fri Apr 05 2024 13:50:55 GMT+0700 (Western Indonesia Time)
+Transfer function successful 05/04/2024, 13:52:43
+Transfer function successful 05/04/2024, 13:58:30
+Transfer function failed at Wed Apr 17 2024 10:23:40 GMT+0700 (Westindonesische Zeit)
+Transfer function failed at Wed Apr 17 2024 10:30:42 GMT+0700 (Westindonesische Zeit)
+Transfer function failed at Wed Apr 17 2024 10:32:12 GMT+0700 (Westindonesische Zeit)
+Transfer function successful 17.4.2024, 10:37:00
+Transfer function successful 17.4.2024, 10:46:56

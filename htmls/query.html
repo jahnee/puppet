@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefabricated-Queries</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="justify-items: center;">
+        <button class="navigateButton" style="align-self: flex-start;"> 
+            <a class="aNav" href="index.html">Go-To Control-Panel </a>
+        </button>
+        <button class="navigateButton" style="align-self: flex-start;"> 
+            <a class="aNav" href="query.html">Go-To Prefabricated-Queries </a>
+        </button>
+        <button class="navigateButton" style="align-self: flex-start;">
+            <a href="manquery.html" class="aNav"> Go to manual Query</a>
+        </button>
+    </div>
+    <div class="container">
+      <div>
+        <div style="margin-top: 80px;margin-bottom: 20px;">
+            <label for="startHour">Start Time:</label>
+            <input type="time" id="startHour" name="startHour">
+            <label for="endHour">End time:</label>
+            <input type="time" id="EndHour" name="startHour">
+        </div>
+        <div>
+            <label for="dateInput">Start date</label>
+            <input type="date" id="startDate" name="startDate">
+            <label for="dateInput">End date</label>
+            <input type="date" id="endDate" name="startDate">
+        </div>
+        <div class="list" style="margin-top: 20px;">
+            <form class="form2" style="justify-content: center;" id="jenisAplikasi">
+                <!-- Form 1 content goes here -->
+                    <label>
+                      <input type="checkbox" name="checkboxOption" value="klikbca"> klikbca
+                    </label>
+                    <label>
+                      <input type="checkbox" name="checkboxOption" value="myBcaMobile"> myBcaMobile
+                    </label>
+            </form>
+            <label>
+            <input type="checkbox" name="error" value="error" id="errorOnly"> error
+            </label>
+            <input type="button" id="Hour" value="Send Query"  onclick="sendQuery()">
+        </div>
+        <div class="belowDiv">
+          <h3>Results Klikbca </h3>
+          <!-- Use a div instead of a paragraph for better structure -->
+          <div id="result1" style="word-wrap: break-word;" name="ASU"></div>
+      </div>
+      <div class="belowDiv">
+        <h3>Results mybcamobile </h3>
+        <!-- Use a div instead of a paragraph for better structure -->
+        <div id="result2" style="word-wrap: break-word;" name="ASU"></div>
+    </div>
+    </div>
+    <script>
+  function detectSelectedOptions(id) {
+      let checkboxForm = document.getElementById(id);
+      let selectedOptions = [];
+      // Loop through checkboxes to find the selected ones
+      if(checkboxForm.checkboxOption.length > 1){
+      for (let i = 0; i < checkboxForm.checkboxOption.length; i++) {
+        if (checkboxForm.checkboxOption[i].checked) {
+          selectedOptions.push(1);
+        }
+        else{
+            selectedOptions.push(0); 
+        }
+      }}
+      else{
+      if(checkboxForm.checkboxOption.checked) {
+        selectedOptions.push(1);
+      }
+      else{
+        selectedOptions.push(0);
+      }
+      }
+      // Update the displayed selected options
+    return selectedOptions.toString();
+}
+
+function sendQuery(){
+  let elements = document.querySelectorAll('div [name="ASU"]');
+    elements.forEach(function(element) {
+        element.innerHTML='';
+    })
+  let jsonSend = {};
+  let trueFormat = true     
+  let startHour = document.getElementById('startHour').value;
+  let endHour = document.getElementById('EndHour').value;
+  let startDate = document.getElementById('startDate').value;
+  let endDate = document.getElementById('endDate').value;
+  jsonSend.jenisAplikasi = detectSelectedOptions('jenisAplikasi').split(",")
+  jsonSend.sT = startDate+'T'+startHour+':00'
+  jsonSend.eT = endDate+'T'+endHour+':00'
+  //console.log(sT,eT)
+  sT = new Date (jsonSend.sT);
+  eT = new Date (jsonSend.eT);
+    if (sT > eT){
+      console.log(sT,eT)
+      trueFormat = false
+      }
+    if (jsonSend.jenisAplikasi.filter(element => element == 1).length == 0){
+        trueFormat = false
+        }
+      Object.values(jsonSend).forEach(element => { if (element == ''){
+      console.log('There is empty value')
+      trueFormat = false;
+      } });
+            //console.log(jsonSend);
+    if(document.getElementById('errorOnly').checked){
+      jsonSend.showError = true
+    }
+    else{
+      jsonSend.showError = false
+    }
+  var xhttp = new XMLHttpRequest();
+if (trueFormat){
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    // Handle the response here
+    console.log(JSON.parse(this.responseText));
+    let x = JSON.parse(this.responseText)
+    for (let i = 0 ; i < x.length; i++)
+    {
+      let resultstring = [];
+      let table = '';
+      if (Array.isArray(x[i])){
+        console.log(`${i} has value`)
+        for(let j in x[i]){
+          if(j == 0){
+            let z = `result${i+1}`
+            let res = Object.values(x[i][j]);
+            table = generateTableHead(res,Object.keys(x[i][0]),i+1);
+          }
+          else{
+          let z = `result${i+1}`
+          let res = Object.values(x[i][j]);
+          generateTableBody(res,table,i+1);}
+        }
+        document.getElementById(`result${i+1}`).innerHTML= table.outerHTML
+      }
+      else{
+        let res = Object.values(x[i]);
+        table = generateTableHead(res,Object.keys(x[i]),i+1);
+        document.getElementById(`result${i+1}`).innerHTML= table.outerHTML
+      }
+    }
+  
+  }
+};
+
+// Open a POST request to a specific URL
+xhttp.open("POST", "/queryTimePeriodResults", true);
+// Set the content type to JSON
+xhttp.setRequestHeader("Content-type", "application/json");
+// Prepare the JSON data
+// Convert JSON data to a string and send the request
+xhttp.send(JSON.stringify(jsonSend));
+}
+        else {
+    let elements = document.querySelectorAll('div [name="ASU"]');
+    elements.forEach(function(element) {
+        let p = document.createElement('p')
+        p.innerText = "ERROR, no queries done"
+        element.appendChild(p);
+    });
+}
+      }
+
+function generateTableHead(data,headers,i) {
+            var table = document.createElement('table');
+            var tbody = document.createElement('tbody');
+            var thead = document.createElement('thead');
+            var tr = document.createElement('tr');
+
+            var headerRow = document.createElement('tr');
+            for (var key in headers) {
+                var th = document.createElement('th');
+                th.textContent = headers[key];
+                headerRow.appendChild(th);
+            }
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+            for (var key in data) {
+                var td = document.createElement('td');
+                td.textContent = data[key];
+                tr.appendChild(td);
+            }
+
+            tbody.appendChild(tr);
+            table.appendChild(tbody);
+            table.id = `tab${i}`;
+            table.setAttribute('style', 'margin:auto;');
+            return table;
+        }
+ 
+function generateTableBody(data,table,i) {
+            var tbody = document.createElement('tbody');
+            var tr = document.createElement('tr');
+            for (var key in data) {
+                var td = document.createElement('td');
+                td.textContent = data[key];
+                tr.appendChild(td);
+            }
+
+            tbody.appendChild(tr);
+            table.appendChild(tbody);
+            table.id = `tab${i}`;
+            table.setAttribute('style', 'margin:auto;');
+            return table;
+        }
+    
+    </script>
+</body>
+</html>
